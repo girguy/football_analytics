@@ -1,0 +1,5 @@
+
+.vscode
+*.bat
+tobronze/fixtures_az_func/test.py
+tobronze/fixtures_az_func/test.ipynb
