@@ -75,6 +75,7 @@ class DataExtractor:
         # Filter for dates after the current date
         current_date = datetime.now()
         nextFixtures = nextFixtures[nextFixtures['date'] > current_date]
+        nextFixtures['date'] = nextFixtures['date'].dt.strftime('%Y-%m-%d')
 
         nextFixtures = nextFixtures.iloc[0:nbGames]
         dates = nextFixtures['date'].to_list()
