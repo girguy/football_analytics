@@ -178,10 +178,10 @@ visualizer = Visualizer(
     statistics, team_games, FIRST_SEASON, LAST_SEASON)
 
 page = st.sidebar.selectbox(' ', ['Main page',
-                                  'League',
-                                  'Teams',
                                   'Fixtures',
-                                  'Betting'])
+                                  'Betting',
+                                  'League',
+                                  'Teams'])
 
 if page == 'Main page':
     # two columns -> first is two times larger than the second one
@@ -419,29 +419,29 @@ elif page == 'Fixtures':
         with col3:
             visualizer.epl_season_stats(team1["name"]+"<br><b>Attack strength",
                                         hTAS, height=height, fontSize=fontSize,
-                                        color=HOME_TEAM_AS)
+                                        color=HOME_TEAM_POINTS)
         with col4:
             visualizer.epl_season_stats(team1["name"]+"<br><b>Defense strength",  # noqa: E501
                                         hTDS, height=height, fontSize=fontSize,
-                                        color=HOME_TEAM_DS)
+                                        color=HOME_TEAM_POINTS)
         with col5:
             visualizer.epl_season_stats(team2["name"]+"<br><b>Points",
                                         team2["points"], height=height,
                                         fontSize=fontSize,
-                                        color=AWAY_TEAM_POINTS)
+                                        color=HOME_TEAM_POINTS)
         with col6:
             visualizer.epl_season_stats(team2["name"]+"<br><b>Ranking",
                                         team2["ranking"], height=height,
                                         fontSize=fontSize,
-                                        color=AWAY_TEAM_RANKING)
+                                        color=HOME_TEAM_POINTS)
         with col7:
             visualizer.epl_season_stats(team2["name"]+"<br><b>Attack strength",
                                         aTAS, height=height, fontSize=fontSize,
-                                        color=AWAY_TEAM_AS)
+                                        color=HOME_TEAM_POINTS)
         with col8:
             visualizer.epl_season_stats(team2["name"]+"<br><b>Defense strength",  # noqa: E501
                                         aTDS, height=height, fontSize=fontSize,
-                                        color=AWAY_TEAM_DS)
+                                        color=HOME_TEAM_POINTS)
 
         col1, col2, col3 = st.columns([2, 1, 1])
         with col1:
@@ -597,7 +597,7 @@ else:
 
     col1, col2, col3 = st.columns([1, 1, 2])
     # average for the league
-    fontSize = 11
+    fontSize = 18
     widthBarPlot = 300
     heightBarPlot = 350
     with col1:
