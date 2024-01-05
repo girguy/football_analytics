@@ -177,11 +177,11 @@ dataExtractor = DataExtractor(
 visualizer = Visualizer(
     statistics, team_games, FIRST_SEASON, LAST_SEASON)
 
-page = st.sidebar.selectbox(' ', ['Main page',
-                                  'Fixtures',
-                                  'Betting',
-                                  'League',
-                                  'Teams'])
+page = st.sidebar.selectbox(' ', ['Presentation page',
+                                  'Betting Suggestions',
+                                  'Next Fixtures',
+                                  'League overview',
+                                  'Teams overview'])
 
 if page == 'Main page':
     # two columns -> first is two times larger than the second one
@@ -597,7 +597,7 @@ else:
 
     col1, col2, col3 = st.columns([1, 1, 2])
     # average for the league
-    fontSize = 18
+    fontSize = 11
     widthBarPlot = 300
     heightBarPlot = 350
     with col1:
