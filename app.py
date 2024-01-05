@@ -177,13 +177,13 @@ dataExtractor = DataExtractor(
 visualizer = Visualizer(
     statistics, team_games, FIRST_SEASON, LAST_SEASON)
 
-page = st.sidebar.selectbox(' ', ['Presentation page',
+page = st.sidebar.selectbox(' ', ['Project presentation',
                                   'Betting Suggestions',
-                                  'Next Fixtures',
+                                  'Next fixtures',
                                   'League overview',
                                   'Teams overview'])
 
-if page == 'Main page':
+if page == 'Project presentation':
     # two columns -> first is two times larger than the second one
     pageTitle, eplLogo = st.columns([2, 1])
 
@@ -223,7 +223,7 @@ if page == 'Main page':
     st.markdown("Most Recently Deposited Entry 2022-")
     st.markdown("Copyright (c) 2022 Guy Girineza")
 
-elif page == 'League':
+elif page == 'League overview':
 
     pageTitle, eplLogo = st.columns([2, 1])
 
@@ -285,7 +285,7 @@ elif page == 'League':
                                               scored=False, fontSize=12)
 
 
-elif page == 'Teams':
+elif page == 'Teams overview':
     pageTitle, eplLogo = st.columns([2, 1])
 
     with pageTitle:
@@ -365,7 +365,7 @@ elif page == 'Teams':
             teamsChoice, data, statChoice, statAbbrev,
             seasonChoice, teams, 600, fontSize)
 
-elif page == 'Fixtures':
+elif page == 'Next fixtures':
 
     pageTitle, eplLogo = st.columns([2, 1])
 
