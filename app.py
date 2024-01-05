@@ -123,7 +123,7 @@ def download_parquet(container_client, blob_name):
     df = pd.read_parquet(stream, engine='pyarrow')
     return df
 
-@st.cache_data
+#@st.cache_data
 def extract_dataset():
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
@@ -178,7 +178,7 @@ visualizer = Visualizer(
     statistics, team_games, FIRST_SEASON, LAST_SEASON)
 
 page = st.sidebar.selectbox(' ', ['Project presentation',
-                                  'Betting Suggestions',
+                                  'Betting suggestions',
                                   'Next fixtures',
                                   'League overview',
                                   'Teams overview'])
@@ -630,23 +630,23 @@ else:
         df = extract_week_suggestions('win')
         visualizer.plot_advised_bets(
             df['homeTeam'], df['awayTeam'], df['win'],
-            "Week suggestion: Most probable home team win",
+            "Weekly suggestions: Most probable home team win",
             fontSize=13)
 
         df = extract_week_suggestions('bothScore')
         visualizer.plot_advised_bets(
             df['homeTeam'], df['awayTeam'], df['bothScore'],
-            "Week suggestion: Both team score",
+            "Weekly suggestions: Both team score",
             fontSize=13)
 
         df = extract_week_suggestions('>2.5')
         visualizer.plot_advised_bets(
             df['homeTeam'], df['awayTeam'], df['>2.5'],
-            "Week suggestion: More than 2.5 goals",
+            "Weekly suggestions: More than 2.5 goals",
             fontSize=13)
 
         df = extract_week_suggestions('>3.5')
         visualizer.plot_advised_bets(
             df['homeTeam'], df['awayTeam'], df['>3.5'],
-            "Week suggestion: More than 3.5 goals",
+            "Weekly suggestions: More than 3.5 goals",
             fontSize=13)
