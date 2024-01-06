@@ -124,7 +124,7 @@ def download_parquet(container_client, blob_name):
     return df
 
 
-@st.cache_data
+#@st.cache_data
 def extract_dataset():
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
