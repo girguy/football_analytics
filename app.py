@@ -599,7 +599,7 @@ else:
 
     col1, col2, col3 = st.columns([1, 1, 2])
     # average for the league
-    fontSize = 11
+    fontSize = 33
     widthBarPlot = 300
     heightBarPlot = 350
     with col1:
