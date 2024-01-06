@@ -123,6 +123,7 @@ def download_parquet(container_client, blob_name):
     df = pd.read_parquet(stream, engine='pyarrow')
     return df
 
+
 @st.cache_data
 def extract_dataset():
     logger = logging.getLogger()
@@ -545,6 +546,7 @@ else:
 
     goalScoredPerTeams = extract_teams_percentages_goal_scoring(team_games,
                                                                 CURSEASON)
+
     nbGPlayed, homeWin, awayWin, draw, goalPerGame, homeGoalPerGame, awayGoalPerGame = st.columns(7)  # noqa: E501
 
     fontSize = 10
