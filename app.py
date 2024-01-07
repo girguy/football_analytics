@@ -632,7 +632,7 @@ else:
         df = extract_week_suggestions('win')
         visualizer.plot_advised_bets(
             df['homeTeam'], df['awayTeam'], df['win'],
-            "Weekly suggestions: Most probable home team win",
+            "Weekly suggestions: Home team win",
             fontSize=13)
 
         df = extract_week_suggestions('bothScore')

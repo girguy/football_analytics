@@ -6,10 +6,10 @@ import pandas as pd
 
 COLOR1 = "#13d6d0"
 COLOR2 = "#FA8072"
-COLOR3 = "#d6ded5"
+COLOR3 = "white"
 BOX_COLOR = "#1f2c56"
 TITLE_COLOR = "white"
-AVERAGE_LINE_COLOR = "#9c1fb5"
+AVERAGE_LINE_COLOR = "white"
 INDICATOR_COLOR = "white"
 TEAM_POINTS_RANKING = "#d4af37"
 HOME_TEAM_POINTS = "#d4af37"
@@ -152,10 +152,10 @@ class Visualizer:
     def create_teams_plot(self, x, y, yLeague, seasonChoice, statChoice, fontSize):
         if 'home' in statChoice.split() or 'away' in statChoice.split():
             fig = self.get_team_performance_away_or_home_plot(x, y, yLeague, seasonChoice, statChoice, fontSize)
-            st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':True}))
+            st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
         else:
             fig = self.get_team_performance_plot(x, y, yLeague, seasonChoice, statChoice, fontSize)
-            st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':True}))
+            st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
 
     def get_team_performance_plot(self, x, y, yLeague, seasonChoice, statChoice, fontSize):
         fig = go.Figure()
@@ -545,7 +545,7 @@ class Visualizer:
                         y=goalConceded,
                         base=0,
                         text=goalConceded,
-                        marker_color=COLOR3,
+                        marker_color='white',
                         name='Goals conceded'
                         ))
 
@@ -577,40 +577,8 @@ class Visualizer:
         fig.update_xaxes(showgrid=False, zeroline=False)
         fig.update_yaxes(showgrid=False, zeroline=False)
         
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':True}))
+        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
 
-    def odds(self, betName, probValue, odd365, fontSize):
-
-        text1 = "<span style='color:#7E909A'>Probability<br>"
-        text2 = "<span style='color:#1C4E80'>" + str(probValue) + " %</span><br>"
-        text3 = "<span style='color:#2AAA8A'>B365 odds</span>"
-        text = text1 +text2 + text3
-
-        fig = go.Figure()
-
-        fig.add_trace(go.Indicator(
-            mode = "number",
-            number_font_color=INDICATOR_COLOR,
-            value = odd365,
-            title = {"text": text }
-            ))
-
-        fig.update_layout(title={
-                'text': "<i><span style='color:" + TITLE_COLOR + "'><i>" + betName,
-                'y':0.9,
-                'x':0.2,
-                'xanchor': 'center',
-                'yanchor': 'top'},
-            font=dict(size=fontSize),
-            autosize=False,
-            width=100,
-            height=150,
-            margin=dict(l=10, r=10, b=10, t=100, pad=4),
-            paper_bgcolor=BOX_COLOR,
-            plot_bgcolor=BOX_COLOR
-        )
-
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':True}))
     
     # =====================================================
     # FIXTURES : Last 4 Games
@@ -917,7 +885,7 @@ class Visualizer:
     # =====================================================
 
     def odd_circle(self, oddName, percentage, width, height, fontSize):
-        colors = [COLOR3, COLOR2]
+        colors = [HOME_TEAM_POINTS, INDICATOR_COLOR]
         percentages = [percentage, 100-percentage]
 
         fig = go.Figure()
@@ -936,7 +904,11 @@ class Visualizer:
             width=width,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
-            annotations=[dict(text=str(percentage)+"%", x=0.5, y=0.5, font_size=20, showarrow=False)],
+            annotations=[dict(text="<span style='color:" + HOME_TEAM_POINTS + "'>"+str(percentage)+"%",
+                              x=0.5,
+                              y=0.5,
+                              font_size=20,
+                              showarrow=False)],
             paper_bgcolor=BOX_COLOR,
             plot_bgcolor=BOX_COLOR
             )
@@ -980,7 +952,6 @@ class Visualizer:
         fig.add_trace(go.Bar(
             x = df[minGoal],
             y = df['team'],
-            text = df[minGoal],
             orientation='h',
             width=0.7,
             marker=dict(
@@ -1006,7 +977,7 @@ class Visualizer:
 
         fig.update_xaxes(visible=False)
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':True}))
+        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
 
     
     def plot_advised_bets(self, homeTeams, awayTeams, results, title, fontSize):

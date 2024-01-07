@@ -72,9 +72,6 @@ class DataExtractor:
         # Ensure the 'date' column is in datetime format
         nextFixtures['date'] = pd.to_datetime(nextFixtures['date'])
 
-        # Filter for dates after the current date
-        current_date = datetime.now()
-        nextFixtures = nextFixtures[nextFixtures['date'] > current_date]
         nextFixtures['date'] = nextFixtures['date'].dt.strftime('%Y-%m-%d')
 
         nextFixtures = nextFixtures.iloc[0:nbGames]
