@@ -221,8 +221,8 @@ if page == 'Project presentation':
     st.markdown("***")
 
     st.markdown("Developed and Maintained by Guy Girineza")
-    st.markdown("Most Recently Deposited Entry 2022-")
-    st.markdown("Copyright (c) 2022 Guy Girineza")
+    st.markdown("Most Recently Deposited Entry 2023-")
+    st.markdown("Copyright (c) 2023 Guy Girineza")
 
 elif page == 'League overview':
 
