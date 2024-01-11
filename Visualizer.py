@@ -152,10 +152,10 @@ class Visualizer:
     def create_teams_plot(self, x, y, yLeague, seasonChoice, statChoice, fontSize):
         if 'home' in statChoice.split() or 'away' in statChoice.split():
             fig = self.get_team_performance_away_or_home_plot(x, y, yLeague, seasonChoice, statChoice, fontSize)
-            st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+            st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':True}))
         else:
             fig = self.get_team_performance_plot(x, y, yLeague, seasonChoice, statChoice, fontSize)
-            st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+            st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':True}))
 
     def get_team_performance_plot(self, x, y, yLeague, seasonChoice, statChoice, fontSize):
         fig = go.Figure()
@@ -577,7 +577,7 @@ class Visualizer:
         fig.update_xaxes(showgrid=False, zeroline=False)
         fig.update_yaxes(showgrid=False, zeroline=False)
         
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':True}))
 
     
     # =====================================================
@@ -977,7 +977,7 @@ class Visualizer:
 
         fig.update_xaxes(visible=False)
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':True}))
 
     
     def plot_advised_bets(self, homeTeams, awayTeams, results, title, fontSize):
