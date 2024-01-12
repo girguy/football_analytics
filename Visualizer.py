@@ -1007,7 +1007,7 @@ class Visualizer:
         fig.add_trace(go.Bar(
             x = df[minGoal],
             y = df['team'],
-            text=df[minGoal],
+            #text=df[minGoal],
             orientation='h',
             width=0.7,
             marker=dict(
