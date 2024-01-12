@@ -96,6 +96,7 @@ class Visualizer:
             title='Evolution of '+stat+' during season '+str(season),
             xaxis_title="Match day",
             yaxis_title='Number of '+stat,
+            dragmode=False,
             font=dict(
                 size=14,
             )
@@ -124,6 +125,7 @@ class Visualizer:
             title='Evolution of the '+stat+' during season '+str(season), #
             xaxis_title="Match day",
             yaxis_title=stat,
+            dragmode=False,
             font=dict(
                 size=14,
             )
@@ -183,6 +185,7 @@ class Visualizer:
             paper_bgcolor=BOX_COLOR,
             plot_bgcolor=BOX_COLOR,
             showlegend=True,
+            dragmode=False,
             legend=dict(orientation="h", yanchor="top", y=1.35, xanchor="left", x=0.4)
         )
 
@@ -212,6 +215,7 @@ class Visualizer:
             margin=dict(l=10, r=10, b=10, t=100, pad=4),
             paper_bgcolor=BOX_COLOR,
             plot_bgcolor=BOX_COLOR,
+            dragmode=False,
             showlegend=True,
             legend=dict(
                 orientation="h",
@@ -271,6 +275,7 @@ class Visualizer:
                     xanchor="center",
                     x=0.8
                 ),
+                dragmode=False,
                 font=dict(size=fontSize), 
                 autosize=False,
                 width=550,
@@ -317,6 +322,7 @@ class Visualizer:
             font=dict(size=fontSize),
             autosize=False,
             height=height,
+            dragmode=False,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             paper_bgcolor=BOX_COLOR,
             plot_bgcolor=BOX_COLOR
@@ -353,6 +359,7 @@ class Visualizer:
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             paper_bgcolor=BOX_COLOR,
             plot_bgcolor=BOX_COLOR,
+            dragmode=False,
             annotations=[dict(text="", x=0.18, y=0.5, font_size=20, showarrow=False),
                         dict(text="", x=0.82, y=0.5, font_size=20, showarrow=False)]
             )
@@ -369,7 +376,7 @@ class Visualizer:
             color = COLOR1
         elif stat == 'Shots on target':
             color = COLOR1
-        else:
+        else: # corners
             color = COLOR1
 
         if goals:
@@ -395,6 +402,7 @@ class Visualizer:
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             paper_bgcolor=BOX_COLOR,
             plot_bgcolor=BOX_COLOR,
+            dragmode=False,
             annotations=[dict(text="", x=0.18, y=0.5, font_size=20, showarrow=False),
                         dict(text="", x=0.82, y=0.5, font_size=20, showarrow=False)]
             )
@@ -434,6 +442,7 @@ class Visualizer:
             paper_bgcolor=BOX_COLOR,
             plot_bgcolor=BOX_COLOR,
             height=height,
+            dragmode=False,
             annotations=[dict(text="", x=0.18, y=0.5, font_size=20, showarrow=False),
                         dict(text="", x=0.82, y=0.5, font_size=20, showarrow=False)]
             )
@@ -469,6 +478,7 @@ class Visualizer:
             autosize=False,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
+            dragmode=False,
             paper_bgcolor=BOX_COLOR,
             plot_bgcolor=BOX_COLOR
             )
@@ -513,6 +523,7 @@ class Visualizer:
             font=dict(size=fontSize),
             autosize=False,
             height=height,
+            dragmode=False,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             annotations=[dict(text="", x=0.18, y=0.5, font_size=20, showarrow=False),
                          dict(text="", x=0.82, y=0.5, font_size=20, showarrow=False)],
@@ -565,6 +576,7 @@ class Visualizer:
                 'xanchor': 'center',
                 'yanchor': 'top'},
             legend=dict(orientation="h"), font=dict(size=fontSize), showlegend=False,
+            dragmode=False,
             autosize=False,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
@@ -610,6 +622,7 @@ class Visualizer:
             legend=dict(orientation="v"), font=dict(size=fontSize), showlegend=True,
             legend_traceorder="reversed",
             autosize=False,
+            dragmode=False,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             paper_bgcolor=BOX_COLOR,
@@ -648,6 +661,7 @@ class Visualizer:
                 'yanchor': 'top'},
             legend=dict(orientation="h"), font=dict(size=fontSize), showlegend=False,
             autosize=False,
+            dragmode=False,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             paper_bgcolor=BOX_COLOR,
@@ -701,6 +715,7 @@ class Visualizer:
             legend=dict(orientation="v"), font=dict(size=fontSize), showlegend=True,
             legend_traceorder="reversed",
             autosize=False,
+            dragmode=False,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             paper_bgcolor=BOX_COLOR,
@@ -754,6 +769,7 @@ class Visualizer:
             grid = {'rows': 1, 'columns': 2, 'pattern': "independent"},
             autosize=False,
             height=height,
+            dragmode=False,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             paper_bgcolor=BOX_COLOR,
             plot_bgcolor=BOX_COLOR
@@ -792,6 +808,7 @@ class Visualizer:
         fig.update_layout(
             legend=dict(orientation="h"), font=dict(size=fontSize), showlegend=False,
             autosize=False,
+            dragmode=False,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             paper_bgcolor=BOX_COLOR,
@@ -838,6 +855,7 @@ class Visualizer:
             barmode='relative',
             legend=dict(orientation="h"), font=dict(size=fontSize), showlegend=True,
             autosize=False,
+            dragmode=False,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             paper_bgcolor=BOX_COLOR,
@@ -872,6 +890,7 @@ class Visualizer:
                    'xanchor': 'center', 'yanchor': 'top'},
             legend=dict(orientation="h"), font=dict(size=fontSize), showlegend=False,
             autosize=False,
+            dragmode=False,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
             paper_bgcolor=BOX_COLOR,
@@ -901,6 +920,7 @@ class Visualizer:
                 'yanchor': 'top'},
             legend=dict(orientation="h"), font=dict(size=fontSize), showlegend=False,
             autosize=True,
+            dragmode=False,
             width=width,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
@@ -933,6 +953,7 @@ class Visualizer:
                 'yanchor': 'top'},
             legend=dict(orientation="h"), font=dict(size=fontSize), showlegend=False,
             autosize=False,
+            dragmode=False,
             width=width,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
@@ -952,6 +973,7 @@ class Visualizer:
         fig.add_trace(go.Bar(
             x = df[minGoal],
             y = df['team'],
+            text=df[minGoal],
             orientation='h',
             width=0.7,
             marker=dict(
@@ -966,6 +988,7 @@ class Visualizer:
                 'xanchor': 'center',
                 'yanchor': 'top'},
             legend=dict(orientation="h"), font=dict(size=fontSize), showlegend=False,
+            dragmode=False,
             width=width,
             height=height,
             margin=dict(l=10, r=10, b=10, t=40, pad=4),
@@ -998,6 +1021,7 @@ class Visualizer:
                     'y':0.94, 'x':0.5,
                     'xanchor': 'center', 'yanchor': 'top'},
             legend=dict(orientation="h"), font=dict(size=fontSize), showlegend=False,
+            dragmode=False,
             autosize=False,
             width=550,
             height=163,
@@ -1006,4 +1030,4 @@ class Visualizer:
             plot_bgcolor=BOX_COLOR
             )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
