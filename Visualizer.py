@@ -137,15 +137,21 @@ class Visualizer:
         year = int(season.split('/')[1])
 
         if 'All' in teams:
-            teams =  allTeams
-        
+            teams = allTeams
+  
         type = stat.split()
         if 'Average' in type:
             fig = self.get_league_average_stat(season, stat, teams)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
         else:
             fig = self.get_league_stat(year, season, stat, teams)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     # =====================================================
     # LEAGUE
@@ -154,10 +160,16 @@ class Visualizer:
     def create_teams_plot(self, x, y, yLeague, seasonChoice, statChoice, fontSize):
         if 'home' in statChoice.split() or 'away' in statChoice.split():
             fig = self.get_team_performance_away_or_home_plot(x, y, yLeague, seasonChoice, statChoice, fontSize)
-            st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+            st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
         else:
             fig = self.get_team_performance_plot(x, y, yLeague, seasonChoice, statChoice, fontSize)
-            st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+            st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     def get_team_performance_plot(self, x, y, yLeague, seasonChoice, statChoice, fontSize):
         fig = go.Figure()
@@ -289,7 +301,10 @@ class Visualizer:
         fig.update_xaxes(showgrid=False, zeroline=False)
         fig.update_yaxes(showgrid=False, zeroline=False)
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     # =====================================================
     # TEAMS
@@ -331,7 +346,10 @@ class Visualizer:
         fig.update_xaxes(showgrid=False, zeroline=False)
         fig.update_yaxes(showgrid=False, zeroline=False)
         
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
     
     def outcomes(self, teamName, outcomes, height, fontSize):
         
@@ -367,7 +385,10 @@ class Visualizer:
         fig.update_xaxes(showgrid=False, zeroline=False)
         fig.update_yaxes(showgrid=False, zeroline=False)
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     def team_stat_evolution(self, matchDay, values, stat, goals=False, height=None, fontSize = 12):
         fig = go.Figure()
@@ -410,7 +431,10 @@ class Visualizer:
         fig.update_xaxes(showgrid=False, zeroline=False)
         fig.update_yaxes(showgrid=False, zeroline=False)
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     def stat_evolution_teams(self, teamsChoice, data, stat, statAbbrev, season, allTeams, height, fontSize):
         fig = go.Figure()
@@ -450,8 +474,10 @@ class Visualizer:
         fig.update_xaxes(showgrid=False, zeroline=False)
         fig.update_yaxes(showgrid=False, zeroline=False)
 
-        st.plotly_chart(fig, use_container_width=True,
-                        config=dict({'staticPlot': False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     # =====================================================
     # FIXTURES : Match up
@@ -483,7 +509,10 @@ class Visualizer:
             plot_bgcolor=BOX_COLOR
             )
         
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
 
     def create_plot_teams_games_outcomes(self, homeTeam, awayTeam, height, fontSize):
@@ -533,7 +562,10 @@ class Visualizer:
 
         fig.update_xaxes(visible=False)
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
     
     def create_plot_teams_goals(self, homeTeam, awayTeam, height, fontSize):
         
@@ -589,7 +621,10 @@ class Visualizer:
         fig.update_xaxes(showgrid=False, zeroline=False)
         fig.update_yaxes(showgrid=False, zeroline=False)
         
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     
     # =====================================================
@@ -631,7 +666,10 @@ class Visualizer:
                         dict(text="", x=0.82, y=0.5, font_size=20, showarrow=False)]
             )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     def recent_form(self, names, forms, height, fontSize):
 
@@ -668,7 +706,10 @@ class Visualizer:
             plot_bgcolor=BOX_COLOR
             )
         
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
         
 
     def recent_goals_scored_conceded(self, teamsName, homeTeam, awayTeam, height, fontSize):
@@ -726,7 +767,10 @@ class Visualizer:
 
         fig.update_xaxes(visible=False)
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     def average_goals(self, teamName, avgs, home=True, height=None, fontSize=None):
         fig = go.Figure()
@@ -775,7 +819,10 @@ class Visualizer:
             plot_bgcolor=BOX_COLOR
             )
         
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     # =====================================================
     # FIXTURES : Last 6 matchups
@@ -815,7 +862,10 @@ class Visualizer:
             plot_bgcolor=BOX_COLOR
             )
         
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     def outcomes_matchup(self, teamsName, homeTeamStats, awayTeamStats, height, fontSize):
         fig = go.Figure()
@@ -865,7 +915,10 @@ class Visualizer:
         fig.update_traces(textposition='inside', textfont_size=14)
         fig.update_xaxes(visible=False)
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     def last_6_games_result(self, teamsName, results, homePlaces, awayPlaces, dates, height, fontSize):
         fig = go.Figure()
@@ -897,7 +950,10 @@ class Visualizer:
             plot_bgcolor=BOX_COLOR
             )
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config= {'displayModeBar': False,
+                                 'staticPlot': False})
 
     # =====================================================
     # FIXTURES : Bets
@@ -933,37 +989,15 @@ class Visualizer:
             plot_bgcolor=BOX_COLOR
             )
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
-
-
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config={'displayModeBar': False,
+                                'staticPlot': False})
 
     # =====================================================
     # Betting
-    # =====================================================
+    # =====================================================        
 
-    def graph_epl_stat(self, percentage, title, height, width, fontSize):
-        fig = go.Figure()
-
-        fig.update_layout(
-            title={
-                'text': "<i><span style='color:" + TITLE_COLOR + "'><i>"+title,
-                'y':0.97,
-                'x':0.5,
-                'xanchor': 'center',
-                'yanchor': 'top'},
-            legend=dict(orientation="h"), font=dict(size=fontSize), showlegend=False,
-            autosize=False,
-            dragmode=False,
-            width=width,
-            height=height,
-            margin=dict(l=10, r=10, b=10, t=40, pad=4),
-            paper_bgcolor=BOX_COLOR,
-            plot_bgcolor=BOX_COLOR
-            )
-        
-        st.plotly_chart(fig, use_container_width=True)
-
-    
     # add the league average !
     def plot_teams_percentages_goal_scoring(self, df, minGoal, title, width, height, fontSize):
         fig = go.Figure()
@@ -1000,7 +1034,10 @@ class Visualizer:
 
         fig.update_xaxes(visible=False)
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config= {'displayModeBar': False,
+                                 'staticPlot': False})
 
     
     def plot_advised_bets(self, homeTeams, awayTeams, results, title, fontSize):
@@ -1030,4 +1067,7 @@ class Visualizer:
             plot_bgcolor=BOX_COLOR
             )
 
-        st.plotly_chart(fig, use_container_width=True, config=dict({'staticPlot':False}))
+        st.plotly_chart(fig, theme="streamlit",
+                        use_container_width=True,
+                        config= {'displayModeBar': False,
+                                 'staticPlot': False})
